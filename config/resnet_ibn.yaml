@@ -1,0 +1,48 @@
+# Dataset directories
+data_dir: '../data'
+fma_dir: '/PATH/TO/FMA/fma_medium/'
+htdemucs_dir: '/PATH/TO/FMA/fma_medium/htdemucs'
+annot_path: '../data/sample100_query_index.json'
+
+
+# Model input parameters
+arch: 'resnet-ibn'
+fs: 22050
+dur: 5.0
+offset: 2.5
+norm: 0.95
+hop_len: 512
+win_len: 1024
+n_fft: 1024
+n_mels: 64
+n_peaks: 512  # max number of peaks to consider
+silence: 1.0e-5
+
+# Dataset and Model hyperparameters
+bsz_train: 512
+tau: 0.05
+lr: 1.0e-4
+min_lr: 2.0e-6
+n_epochs: 120
+T_max: 100
+error_threshold: 5
+
+# Augmentation hyperparameters
+n_frames: 216 # depends on the spectrogram parameters
+overlap: 0.5
+pitch_shift: 3
+gain: 10
+
+# Time Stretching hyperparameters
+min_rate: 0.7
+max_rate: 1.5
+
+# BitCrusher hyperparameters
+min_bit_depth: 2
+max_bit_depth: 10
+
+# Dynamic range compression hyperparameters
+DC_threshold: [-30, 0]
+DC_ratio: [2, 4, 8, 20]
+DC_attack: [0.001, 0.1]
+DC_release: [0.05, 1.0]
